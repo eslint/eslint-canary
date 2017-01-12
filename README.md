@@ -2,14 +2,14 @@
 
 (WIP) Regression build for [ESLint](https://github.com/eslint/eslint)
 
+`eslint-canary` clones a hardcoded list of projects known to use ESLint, and runs ESLint on all of them to ensure that no errors are reported. This is intended to catch regressions in ESLint that are missed by ESLint's unit tests.
+
 ## Usage
 
 ```
 $ npm install eslint-canary -g
 $ eslint-canary path/to/package/folder/containing/eslint
 ```
-
-`eslint-canary` clones a hardcoded list of projects known to use ESLint, and runs ESLint on all of them to ensure that no errors are reported. This is intended to catch regressions in ESLint that are missed by ESLint's unit tests.
 
 ## Adding your project
 
