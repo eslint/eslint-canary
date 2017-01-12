@@ -1,0 +1,32 @@
+{
+  "name": "eslint-canary",
+  "version": "0.1.0",
+  "description": "eslint regression build",
+  "main": "index.js",
+  "bin": {
+    "eslint-canary": "canary.js"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "test": "npm run lint && node validate-projects.js && node canary.js node_modules/eslint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/not-an-aardvark/eslint-canary.git"
+  },
+  "author": "Teddy Katz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/not-an-aardvark/eslint-canary/issues"
+  },
+  "homepage": "https://github.com/not-an-aardvark/eslint-canary#readme",
+  "devDependencies": {
+    "eslint": "^3.13.1",
+    "eslint-config-eslint": "^3.0.0"
+  },
+  "dependencies": {
+    "chai": "^3.5.0",
+    "js-yaml": "^3.7.0",
+    "rimraf": "^2.5.4"
+  }
+}

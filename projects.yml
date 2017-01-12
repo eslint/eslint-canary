@@ -1,0 +1,29 @@
+# name: the name of the project (preferably unique, but not actually used for anything at the moment)
+# repo: the URL of a git repository
+# args: Raw arguments that should get passed to ESLint
+# dependencies (optional): A list of additional dependencies to install that are needed for linting. (All dependencies starting
+#   with 'eslint-config-' or 'eslint-plugin-' will be automatically installed, but currently things like custom parsers will not be.)
+
+# Please keep this list alphabetical by name.
+
+- name: body-parser
+  repo: https://github.com/expressjs/body-parser
+  args:
+    - .
+
+- name: jquery
+  repo: https://github.com/jquery/jquery
+  args:
+    - src/**/*.js
+    - Gruntfile.js
+    - test/**/*.js
+    - build/**/*.js
+
+- name: node
+  repo: https://github.com/nodejs/node
+  args:
+    - --rulesdir=tools/eslint-rules
+    - benchmark
+    - lib
+    - test
+    - tools
