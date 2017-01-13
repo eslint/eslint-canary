@@ -52,3 +52,17 @@
     - test
   dependencies:
     - babel-eslint
+
+- name: webpack
+  repo: https://github.com/webpack/webpack
+  args:
+    - lib
+    - bin
+    - hot
+    - buildin
+    - test/**/webpack.config.js
+    - test/binCases/**/test.js
+    - examples/**/webpack.config.js
+    - --rule=node/no-missing-require:off # Prevent missing dependencies from erroring
+    - --ignore-pattern=test/statsCases/preset-mixed-array/webpack.config.js  # These two files are known to have `semi` errors
+    - --ignore-pattern=test/statsCases/preset-none-array/webpack.config.js
