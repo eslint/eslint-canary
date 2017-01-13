@@ -1,8 +1,8 @@
 # name: the name of the project (preferably unique, but not actually used for anything at the moment)
 # repo: the URL of a git repository
 # args: Raw arguments that should get passed to ESLint
-# dependencies (optional): A list of additional dependencies to install that are needed for linting. (All dependencies starting
-#   with 'eslint-config-' or 'eslint-plugin-' will be automatically installed, but currently things like custom parsers will not be.)
+# dependencies (optional): A list of additional dependencies to install that are needed for linting. (All dependencies containing
+# the word `eslint` will be automatically installed, but currently things like custom parsers will not be.)
 
 # Please keep this list alphabetical by name.
 
@@ -41,8 +41,6 @@
     - test
     - build
     - examples
-  dependencies:
-    - babel-eslint
 
 - name: vue
   repo: https://github.com/vuejs/vue
@@ -50,8 +48,6 @@
     - src
     - build
     - test
-  dependencies:
-    - babel-eslint
 
 - name: webpack
   repo: https://github.com/webpack/webpack

@@ -38,8 +38,7 @@ function spawn(command, args) {
 * @returns {boolean} `true` if the dependency should be installed
 */
 function shouldInstall(projectInfo, dependency) {
-    return dependency.startsWith("eslint-config-") ||
-        dependency.startsWith("eslint-plugin-") ||
+    return dependency.includes("eslint") && dependency !== "eslint" ||
         projectInfo.dependencies && projectInfo.dependencies.indexOf(dependency) !== -1;
 }
 
