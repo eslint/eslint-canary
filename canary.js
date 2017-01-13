@@ -64,9 +64,9 @@ projects.forEach(projectInfo => {
         const packageFile = JSON.parse(fs.readFileSync("package.json", "utf8"));
         const dependencyVersions = Object.assign({}, packageFile.dependencies, packageFile.devDependencies);
 
-        npmInstallArgs = Object.keys(dependencyVersions)
+        npmInstallArgs = Array.from(new Set(Object.keys(dependencyVersions).concat(projectInfo.dependencies || [])))
             .filter(dependency => shouldInstall(projectInfo, dependency))
-            .map(dependency => `${dependency}@${dependencyVersions[dependency]}`);
+            .map(dependency => dependencyVersions[dependency] ? `${dependency}@${dependencyVersions[dependency]}` : dependency);
     }
 
     console.log(`Installing dependencies for ${projectInfo.name}`);
@@ -79,8 +79,7 @@ projects.forEach(projectInfo => {
         console.log(`Successfully linted ${projectInfo.name} with no errors`);
     } catch (result) {
         console.error(`Linting ${projectInfo.name} resulted in an error:`);
-        console.error(result.output[1].toString()); // stdout
-        console.error(result.output[2].toString()); // stderr
+        console.error(result.output[1].toString());
         process.exitCode = 1;
     }
     console.log("\n");
