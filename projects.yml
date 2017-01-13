@@ -19,6 +19,12 @@
     - test/**/*.js
     - build/**/*.js
 
+- name: mocha
+  repo: https://github.com/mochajs/mocha
+  args:
+    - .
+    - bin/*
+
 - name: node
   repo: https://github.com/nodejs/node
   args:
