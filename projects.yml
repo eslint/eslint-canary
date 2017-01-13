@@ -34,6 +34,16 @@
     - test
     - tools
 
+- name: redux
+  repo: https://github.com/reactjs/redux
+  args:
+    - src
+    - test
+    - build
+    - examples
+  dependencies:
+    - babel-eslint
+
 - name: vue
   repo: https://github.com/vuejs/vue
   args:
