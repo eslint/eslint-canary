@@ -33,3 +33,12 @@
     - lib
     - test
     - tools
+
+- name: vue
+  repo: https://github.com/vuejs/vue
+  args:
+    - src
+    - build
+    - test
+  dependencies:
+    - babel-eslint
