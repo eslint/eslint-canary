@@ -60,5 +60,4 @@
     - test/binCases/**/test.js
     - examples/**/webpack.config.js
     - --rule=node/no-missing-require:off # Prevent missing dependencies from erroring
-    - --ignore-pattern=test/statsCases/preset-mixed-array/webpack.config.js  # These two files are known to have `semi` errors
-    - --ignore-pattern=test/statsCases/preset-none-array/webpack.config.js
+    - --rule=semi:off # There are several `semi` errors in the webpack codebase for some reason
