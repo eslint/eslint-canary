@@ -10,13 +10,34 @@ if (process.argv.length < 3) {
 
 const fs = require("fs");
 const childProcess = require("child_process");
-const os = require("os");
 const path = require("path");
 
 const assert = require("chai").assert;
 const eslintPath = path.resolve(process.cwd(), process.argv[2]);
 const yaml = require("js-yaml");
 const projects = yaml.safeLoad(fs.readFileSync(path.join(__dirname, "projects.yml"), "utf8"));
+const PROJECT_DIRECTORY = path.join(__dirname, ".downloaded-projects");
+
+/**
+ * Set up a temp folder where projects should be cloned.
+ * @returns {void}
+ */
+function createTempFolder() {
+    const PROJECT_DIRECTORY_ESLINTRC_PATH = path.join(PROJECT_DIRECTORY, ".eslintrc.yml");
+
+    if (!fs.existsSync(PROJECT_DIRECTORY)) {
+        fs.mkdirSync(PROJECT_DIRECTORY);
+    }
+
+    if (!fs.existsSync(PROJECT_DIRECTORY_ESLINTRC_PATH)) {
+
+        /*
+         * Add a config file with root: true to the downloaded projects directory.
+         * This prevents the .eslintrc file from the eslint-canary module from interfering due to config cascading.
+         */
+        fs.writeFileSync(PROJECT_DIRECTORY_ESLINTRC_PATH, "root: true");
+    }
+}
 
 /**
 * Synchronously spawn a child process, and throw if it exits with an error
@@ -41,11 +62,12 @@ function shouldInstall(projectInfo, dependency) {
         projectInfo.dependencies && projectInfo.dependencies.indexOf(dependency) !== -1;
 }
 
-
 require("./validate-projects");
 
+createTempFolder();
+
 projects.forEach(projectInfo => {
-    process.chdir(os.tmpdir());
+    process.chdir(PROJECT_DIRECTORY);
 
     if (fs.existsSync(projectInfo.name)) {
         console.log(`${projectInfo.name} already downloaded`);
@@ -70,6 +92,15 @@ projects.forEach(projectInfo => {
     }
 
     console.log(`Installing dependencies for ${projectInfo.name}`);
+
+    /*
+     * Create an empty node_modules folder to ensure that npm installs dependencies into the project, rather than into
+     * eslint-canary/node_modules. (This is only necessary for projects that don't have a package.json file, such as Node.)
+     */
+    if (!fs.existsSync("node_modules")) {
+        fs.mkdirSync("node_modules");
+    }
+
     spawn("npm", ["install", "--ignore-scripts", eslintPath].concat(npmInstallArgs));
 
     console.log(`Linting ${projectInfo.name}`);
