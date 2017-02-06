@@ -1,5 +1,6 @@
 # name: the name of the project (preferably unique, but not actually used for anything at the moment)
 # repo: the URL of a git repository
+# commit: a commit in the repo to run the linter on
 # args: Raw arguments that should get passed to ESLint
 # dependencies (optional): A list of additional dependencies to install that are needed for linting. (All dependencies containing
 # the word `eslint` will be automatically installed, but currently things like custom parsers will not be.)
@@ -8,11 +9,13 @@
 
 - name: body-parser
   repo: https://github.com/expressjs/body-parser
+  commit: c5a73d51483310f8443043d3927c2557993f3416
   args:
     - .
 
 - name: jquery
   repo: https://github.com/jquery/jquery
+  commit: 3e3b09d68d317a3fe567e377e9032319ac5e0829
   args:
     - src/**/*.js
     - Gruntfile.js
@@ -21,12 +24,14 @@
 
 - name: mocha
   repo: https://github.com/mochajs/mocha
+  commit: f9acbf1845ebcd35f2346284e28e33b1adb420be
   args:
     - .
     - bin/*
 
 - name: node
   repo: https://github.com/nodejs/node
+  commit: 7dd82dd1c36e7e38a05ae9709956ae257cf75282
   args:
     - --rulesdir=tools/eslint-rules
     - benchmark
@@ -36,6 +41,7 @@
 
 - name: redux
   repo: https://github.com/reactjs/redux
+  commit: edd9831bca963e11ac69d51ff55cd6921d1cb227
   args:
     - src
     - test
@@ -44,13 +50,16 @@
 
 - name: vue
   repo: https://github.com/vuejs/vue
+  commit: ec7fca8495528bda169c44ac660747bf2a8000a8
   args:
     - src
     - build
     - test
+    - --rule=camelcase:off # There are several `camelcase` errors in the vue codebase for some reason
 
 - name: webpack
   repo: https://github.com/webpack/webpack
+  commit: 3855b77275d4de0ff23b8c83ef3b8ad43fef00dc
   args:
     - lib
     - bin
@@ -61,3 +70,4 @@
     - examples/**/webpack.config.js
     - --rule=node/no-missing-require:off # Prevent missing dependencies from erroring
     - --rule=semi:off # There are several `semi` errors in the webpack codebase for some reason
+    - --ignore-pattern=test/configCases/plugins/environment-plugin/webpack.config.js

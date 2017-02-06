@@ -26,7 +26,6 @@
   },
   "dependencies": {
     "chai": "^3.5.0",
-    "js-yaml": "^3.7.0",
-    "rimraf": "^2.5.4"
+    "js-yaml": "^3.7.0"
   }
 }

@@ -19,6 +19,8 @@ projects.forEach(projectInfo => {
     if (projectInfo.dependencies) {
         assert.isArray(projectInfo.dependencies, "Project dependencies must be in an array");
     }
+
+    assert.match(projectInfo.commit, /^[0-9a-f]{40}$/, "Project commit must be a full commit hash");
 });
 
 assert.deepEqual(projects.map(project => project.name), projects.map(project => project.name).sort(), "Project names should be sorted");

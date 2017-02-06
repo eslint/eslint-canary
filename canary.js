@@ -13,7 +13,6 @@ const childProcess = require("child_process");
 const os = require("os");
 const path = require("path");
 
-const rimraf = require("rimraf");
 const assert = require("chai").assert;
 const eslintPath = path.resolve(process.cwd(), process.argv[2]);
 const yaml = require("js-yaml");
@@ -49,13 +48,15 @@ projects.forEach(projectInfo => {
     process.chdir(os.tmpdir());
 
     if (fs.existsSync(projectInfo.name)) {
-        rimraf.sync(projectInfo.name, { disableGlob: true });
+        console.log(`${projectInfo.name} already downloaded`);
+    } else {
+        console.log(`Cloning ${projectInfo.repo}`);
+        spawn("git", ["clone", projectInfo.repo, "--single-branch", projectInfo.name]);
     }
 
-    console.log(`Cloning ${projectInfo.repo}`);
-    spawn("git", ["clone", projectInfo.repo, "--single-branch", "--depth=1", projectInfo.name]);
-
     process.chdir(projectInfo.name);
+
+    spawn("git", ["checkout", projectInfo.commit]);
 
     let npmInstallArgs = [];
 
