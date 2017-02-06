@@ -17,7 +17,7 @@ const rimraf = require("rimraf");
 const assert = require("chai").assert;
 const eslintPath = path.resolve(process.cwd(), process.argv[2]);
 const yaml = require("js-yaml");
-const projects = yaml.safeLoad(fs.readFileSync("projects.yml", "utf8"));
+const projects = yaml.safeLoad(fs.readFileSync(path.join(__dirname, "projects.yml"), "utf8"));
 
 /**
 * Synchronously spawn a child process, and throw if it exits with an error
