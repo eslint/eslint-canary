@@ -1,4 +1,4 @@
-# eslint-canary [![Build Status](https://travis-ci.org/not-an-aardvark/eslint-canary.svg?branch=master)](https://travis-ci.org/not-an-aardvark/eslint-canary)
+# eslint-canary [![Build Status](https://travis-ci.org/eslint/eslint-canary.svg?branch=master)](https://travis-ci.org/not-an-aardvark/eslint-canary)
 
 (WIP) Regression build for [ESLint](https://github.com/eslint/eslint)
 
