@@ -38,6 +38,7 @@
     - lib
     - test
     - tools
+    - --rule=timer-arguments:off
 
 - name: redux
   repo: https://github.com/reactjs/redux
