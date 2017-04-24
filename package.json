@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/not-an-aardvark/eslint-canary#readme",
   "devDependencies": {
-    "eslint": "^3.13.1",
+    "eslint": "^4.0.0-alpha.1",
     "eslint-config-eslint": "^3.0.0"
   },
   "dependencies": {
