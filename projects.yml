@@ -12,6 +12,7 @@
   commit: c5a73d51483310f8443043d3927c2557993f3416
   args:
     - .
+    - --rule=indent:off
 
 - name: jquery
   repo: https://github.com/jquery/jquery
@@ -28,6 +29,8 @@
   args:
     - .
     - bin/*
+    - --rule=indent:off
+    - --rule=no-multi-spaces:[error, {ignoreEOLComments:true}]
 
 - name: node
   repo: https://github.com/nodejs/node
@@ -38,6 +41,8 @@
     - lib
     - test
     - tools
+    - --rule=indent:off
+    - --rule=no-multi-spaces:[error, {ignoreEOLComments:true}]
     - --rule=timer-arguments:off
 
 - name: redux
@@ -56,6 +61,8 @@
     - src
     - build
     - test
+    - --rule=indent:off
+    - --rule=no-multi-spaces:[error, {ignoreEOLComments:true}]
     - --rule=camelcase:off # There are several `camelcase` errors in the vue codebase for some reason
 
 - name: webpack
@@ -70,5 +77,7 @@
     - test/binCases/**/test.js
     - examples/**/webpack.config.js
     - --rule=node/no-missing-require:off # Prevent missing dependencies from erroring
+    - --rule=indent:off
+    - --rule=no-useless-escape:off
     - --rule=semi:off # There are several `semi` errors in the webpack codebase for some reason
     - --ignore-pattern=test/configCases/plugins/environment-plugin/webpack.config.js
