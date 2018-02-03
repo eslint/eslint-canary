@@ -30,7 +30,7 @@
     - .
     - bin/*
     - --rule=indent:off
-    - --rule=no-multi-spaces:[error, {ignoreEOLComments:true}]
+    - --rule=no-multi-spaces:[error,{ignoreEOLComments:true}]
 
 - name: node
   repo: https://github.com/nodejs/node
@@ -62,7 +62,7 @@
     - build
     - test
     - --rule=indent:off
-    - --rule=no-multi-spaces:[error, {ignoreEOLComments:true}]
+    - --rule=no-multi-spaces:[error,{ignoreEOLComments:true}]
     - --rule=camelcase:off # There are several `camelcase` errors in the vue codebase for some reason
 
 - name: webpack
