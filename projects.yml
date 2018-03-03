@@ -9,7 +9,7 @@
 
 - name: body-parser
   repo: https://github.com/expressjs/body-parser
-  commit: c5a73d51483310f8443043d3927c2557993f3416
+  commit: b2659a7af3b413a2d1df274bef409fe6cdcf6b8f
   args:
     - .
     - --rule=indent:off
@@ -25,7 +25,7 @@
 
 - name: mocha
   repo: https://github.com/mochajs/mocha
-  commit: f9acbf1845ebcd35f2346284e28e33b1adb420be
+  commit: 09ce746aa925d35317f2624fd36c77a31bb68e24
   args:
     - .
     - bin/*
@@ -47,7 +47,7 @@
 
 - name: redux
   repo: https://github.com/reactjs/redux
-  commit: edd9831bca963e11ac69d51ff55cd6921d1cb227
+  commit: 8f60ba321e8ba5fa71d60fa35573c2cdf9c0d852
   args:
     - src
     - test
@@ -56,7 +56,7 @@
 
 - name: vue
   repo: https://github.com/vuejs/vue
-  commit: ec7fca8495528bda169c44ac660747bf2a8000a8
+  commit: d982e344b39391fe91b6dd91d51b2f0310a45e77
   args:
     - src
     - build
@@ -67,7 +67,7 @@
 
 - name: webpack
   repo: https://github.com/webpack/webpack
-  commit: 3855b77275d4de0ff23b8c83ef3b8ad43fef00dc
+  commit: bc840ec8747ba19c9e87629f2959ed2e65a9ffbe
   args:
     - lib
     - bin
