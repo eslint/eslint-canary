@@ -71,13 +71,16 @@ projects.forEach(projectInfo => {
     process.chdir(PROJECT_DIRECTORY);
 
     if (fs.existsSync(projectInfo.name)) {
-        console.log(`${projectInfo.name} already downloaded`);
+        console.log(`${projectInfo.name} already downloaded, fetching latest refs`);
+
+        process.chdir(projectInfo.name);
+        spawn("git", ["fetch", "origin"]);
     } else {
         console.log(`Cloning ${projectInfo.repo}`);
-        spawn("git", ["clone", projectInfo.repo, "--single-branch", projectInfo.name]);
-    }
 
-    process.chdir(projectInfo.name);
+        spawn("git", ["clone", projectInfo.repo, "--single-branch", projectInfo.name]);
+        process.chdir(projectInfo.name);
+    }
 
     spawn("git", ["checkout", projectInfo.commit]);
 
