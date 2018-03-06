@@ -9,8 +9,8 @@ if (process.argv.length < 3) {
 }
 
 const fs = require("fs");
-const childProcess = require("child_process");
 const path = require("path");
+const spawnSync = require("cross-spawn").sync;
 
 const assert = require("chai").assert;
 const eslintPath = path.resolve(process.cwd(), process.argv[2]);
@@ -18,7 +18,6 @@ const eslintBinPath = (process.platform === "win32") ? "\"node_modules/.bin/esli
 const yaml = require("js-yaml");
 const projects = yaml.safeLoad(fs.readFileSync(path.join(__dirname, "projects.yml"), "utf8"));
 const PROJECT_DIRECTORY = path.join(__dirname, ".downloaded-projects");
-const spawnOptions = {shell: process.platform === "win32"};
 
 /**
  * Set up a temp folder where projects should be cloned.
@@ -48,7 +47,7 @@ function createTempFolder() {
 * @returns {void}
 */
 function spawn(command, args) {
-    const result = childProcess.spawnSync(command, args, spawnOptions);
+    const result = spawnSync(command, args);
 
     assert.strictEqual(result.status, 0, `The command '${command} ${args.join(" ")}' exited with an exit code of ${result.status}:\n\n${result.output[2].toString()}`);
 }
@@ -107,7 +106,7 @@ projects.forEach(projectInfo => {
 
     console.log(`Linting ${projectInfo.name}`);
 
-    const result = childProcess.spawnSync(eslintBinPath, projectInfo.args.concat("--format=codeframe"), spawnOptions);
+    const result = spawnSync(eslintBinPath, projectInfo.args.concat("--format=codeframe"));
     if (result.status === 0) {
         console.log(`Successfully linted ${projectInfo.name} with no errors`);
     } else {
