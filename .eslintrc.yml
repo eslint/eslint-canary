@@ -3,3 +3,9 @@ env:
     es6: true
 
 extends: eslint
+
+rules:
+    no-restricted-modules:
+       - error
+       - name: child_process
+         message: Please use cross-spawn instead.
