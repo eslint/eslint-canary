@@ -84,3 +84,5 @@
     - --rule=no-useless-escape:off
     - --rule=semi:off # There are several `semi` errors in the webpack codebase for some reason
     - --ignore-pattern=test/configCases/plugins/environment-plugin/webpack.config.js
+  dependencies:
+    - prettier
