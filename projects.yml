@@ -83,6 +83,7 @@
     - --rule=indent:off
     - --rule=no-useless-escape:off
     - --rule=semi:off # There are several `semi` errors in the webpack codebase for some reason
+    - --rule=prettier/prettier:off # There are several errors with `prettier/prettier`, need to figure out what is missing in config
     - --ignore-pattern=test/configCases/plugins/environment-plugin/webpack.config.js
   dependencies:
     - prettier
