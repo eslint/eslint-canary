@@ -34,7 +34,7 @@
 
 - name: node
   repo: https://github.com/nodejs/node
-  commit: 7dd82dd1c36e7e38a05ae9709956ae257cf75282
+  commit: 0863a0e528ba9ee01f960dce7ffebe8fff3a774c
   args:
     - --rulesdir=tools/eslint-rules
     - benchmark
