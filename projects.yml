@@ -47,7 +47,7 @@
 
 - name: redux
   repo: https://github.com/reactjs/redux
-  commit: 8f60ba321e8ba5fa71d60fa35573c2cdf9c0d852
+  commit: ac7cd32a5270eb374611bf73d072e84a1e7567c2
   args:
     - src
     - test
