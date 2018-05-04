@@ -67,17 +67,23 @@
 
 - name: webpack
   repo: https://github.com/webpack/webpack
-  commit: bc840ec8747ba19c9e87629f2959ed2e65a9ffbe
+  commit: f1092ad516b77b763a5797e155b24ce0d37bd96b
   args:
+    - setup
     - lib
     - bin
     - hot
     - buildin
+    - test/*.js
     - test/**/webpack.config.js
     - test/binCases/**/test.js
     - examples/**/webpack.config.js
+    - schemas/**/*.js
     - --rule=node/no-missing-require:off # Prevent missing dependencies from erroring
     - --rule=indent:off
     - --rule=no-useless-escape:off
     - --rule=semi:off # There are several `semi` errors in the webpack codebase for some reason
+    - --rule=prettier/prettier:off # There are several errors with `prettier/prettier`, need to figure out what is missing in config
     - --ignore-pattern=test/configCases/plugins/environment-plugin/webpack.config.js
+  dependencies:
+    - prettier
