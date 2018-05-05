@@ -14,7 +14,7 @@ const spawnSync = require("cross-spawn").sync;
 
 const assert = require("chai").assert;
 const eslintPath = path.resolve(process.cwd(), process.argv[2]);
-const eslintBinPath = (process.platform === "win32") ? "\"node_modules/.bin/eslint\"" : "node_modules/.bin/eslint";
+const eslintBinPath = "node_modules/.bin/eslint";
 const yaml = require("js-yaml");
 const projects = yaml.safeLoad(fs.readFileSync(path.join(__dirname, "projects.yml"), "utf8"));
 const PROJECT_DIRECTORY = path.join(__dirname, ".downloaded-projects");
