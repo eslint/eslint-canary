@@ -44,6 +44,7 @@
     - --rule=indent:off
     - --rule=no-multi-spaces:[error, {ignoreEOLComments:true}]
     - --rule=timer-arguments:off
+    - --rule=no-self-assign:[error, {props:false}]
 
 - name: redux
   repo: https://github.com/reactjs/redux
@@ -51,7 +52,6 @@
   args:
     - src
     - test
-    - build
     - examples
 
 - name: vue
@@ -69,21 +69,16 @@
   repo: https://github.com/webpack/webpack
   commit: f1092ad516b77b763a5797e155b24ce0d37bd96b
   args:
-    - setup
     - lib
     - bin
     - hot
     - buildin
     - test/*.js
     - test/**/webpack.config.js
-    - test/binCases/**/test.js
     - examples/**/webpack.config.js
     - schemas/**/*.js
+    - --rule=no-self-assign:[error, {props:false}]
     - --rule=node/no-missing-require:off # Prevent missing dependencies from erroring
-    - --rule=indent:off
-    - --rule=no-useless-escape:off
-    - --rule=semi:off # There are several `semi` errors in the webpack codebase for some reason
     - --rule=prettier/prettier:off # There are several errors with `prettier/prettier`, need to figure out what is missing in config
-    - --ignore-pattern=test/configCases/plugins/environment-plugin/webpack.config.js
   dependencies:
     - prettier
