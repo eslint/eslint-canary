@@ -67,7 +67,7 @@
 
 - name: webpack
   repo: https://github.com/webpack/webpack
-  commit: f1092ad516b77b763a5797e155b24ce0d37bd96b
+  commit: 95291e83662b2a2a184d492de0451cda27da1279
   args:
     - lib
     - bin
