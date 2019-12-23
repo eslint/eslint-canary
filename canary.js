@@ -41,11 +41,11 @@ function createTempFolder() {
 }
 
 /**
-* Synchronously spawn a child process, and throw if it exits with an error
-* @param {string} command The command to spawn
-* @param {string[]} args Arguments for the command
-* @returns {void}
-*/
+ * Synchronously spawn a child process, and throw if it exits with an error
+ * @param {string} command The command to spawn
+ * @param {string[]} args Arguments for the command
+ * @returns {void}
+ */
 function spawn(command, args) {
     const result = spawnSync(command, args);
 
@@ -53,11 +53,11 @@ function spawn(command, args) {
 }
 
 /**
-* Determines whether a particular dependency of a project should be installed
-* @param {object} projectInfo The project information in the yml file
-* @param {string} dependency The name of the dependency
-* @returns {boolean} `true` if the dependency should be installed
-*/
+ * Determines whether a particular dependency of a project should be installed
+ * @param {Object} projectInfo The project information in the yml file
+ * @param {string} dependency The name of the dependency
+ * @returns {boolean} `true` if the dependency should be installed
+ */
 function shouldInstall(projectInfo, dependency) {
     return dependency.includes("eslint") && dependency !== "eslint" ||
         projectInfo.dependencies && projectInfo.dependencies.indexOf(dependency) !== -1;
@@ -92,7 +92,7 @@ projects.forEach(projectInfo => {
 
         npmInstallArgs = Array.from(new Set(Object.keys(dependencyVersions).concat(projectInfo.dependencies || [])))
             .filter(dependency => shouldInstall(projectInfo, dependency))
-            .map(dependency => dependencyVersions[dependency] ? `${dependency}@${dependencyVersions[dependency]}` : dependency);
+            .map(dependency => (dependencyVersions[dependency] ? `${dependency}@${dependencyVersions[dependency]}` : dependency));
     }
 
     console.log(`Installing dependencies for ${projectInfo.name}`);
@@ -110,6 +110,7 @@ projects.forEach(projectInfo => {
     console.log(`Linting ${projectInfo.name}`);
 
     const result = spawnSync(eslintBinPath, projectInfo.args.concat("--format=codeframe"));
+
     if (result.status === 0) {
         console.log(`Successfully linted ${projectInfo.name} with no errors`);
     } else {
