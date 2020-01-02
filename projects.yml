@@ -34,7 +34,7 @@
 
 - name: node
   repo: https://github.com/nodejs/node
-  commit: 0863a0e528ba9ee01f960dce7ffebe8fff3a774c
+  commit: 7babffbe6054754b733098c52786a23df4049a74
   args:
     - --rulesdir=tools/eslint-rules
     - benchmark
@@ -67,7 +67,7 @@
 
 - name: webpack
   repo: https://github.com/webpack/webpack
-  commit: 95291e83662b2a2a184d492de0451cda27da1279
+  commit: dcc45dd977356f08061b2e9451792c6218910891
   args:
     - lib
     - bin
