@@ -48,7 +48,7 @@
 
 - name: redux
   repo: https://github.com/reactjs/redux
-  commit: ac7cd32a5270eb374611bf73d072e84a1e7567c2
+  commit: 87eee1e879a7ecbdab32caa09dfa2bfc566d6269
   args:
     - src
     - test
@@ -56,7 +56,7 @@
 
 - name: vue
   repo: https://github.com/vuejs/vue
-  commit: d982e344b39391fe91b6dd91d51b2f0310a45e77
+  commit: 6b4c0f9c89899f89a3ef258fb0599d78bef65664
   args:
     - src
     - build
@@ -78,6 +78,7 @@
     - examples/**/webpack.config.js
     - schemas/**/*.js
     - --rule=no-self-assign:[error, {props:false}]
+    - --rule=no-redeclare:off
     - --rule=node/no-missing-require:off # Prevent missing dependencies from erroring
     - --rule=prettier/prettier:off # There are several errors with `prettier/prettier`, need to figure out what is missing in config
   dependencies:
