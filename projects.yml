@@ -9,14 +9,13 @@
 
 - name: body-parser
   repo: https://github.com/expressjs/body-parser
-  commit: b2659a7af3b413a2d1df274bef409fe6cdcf6b8f
+  commit: b15bae549108e613ceb5e408731cbdb374ad62df
   args:
     - .
-    - --rule=indent:off
 
 - name: jquery
   repo: https://github.com/jquery/jquery
-  commit: 3e3b09d68d317a3fe567e377e9032319ac5e0829
+  commit: c1ee33aded44051b8f1288b59d2efdc68d0413cc
   args:
     - src/**/*.js
     - Gruntfile.js
@@ -25,12 +24,10 @@
 
 - name: mocha
   repo: https://github.com/mochajs/mocha
-  commit: 09ce746aa925d35317f2624fd36c77a31bb68e24
+  commit: d9f5079b3b26c61fec3329a902dea00ccc961f70
   args:
     - .
     - bin/*
-    - --rule=indent:off
-    - --rule=no-multi-spaces:[error,{ignoreEOLComments:true}]
 
 - name: node
   repo: https://github.com/nodejs/node
@@ -41,45 +38,27 @@
     - lib
     - test
     - tools
-    - --rule=indent:off
-    - --rule=no-multi-spaces:[error, {ignoreEOLComments:true}]
-    - --rule=timer-arguments:off
-    - --rule=no-self-assign:[error, {props:false}]
 
 - name: redux
   repo: https://github.com/reactjs/redux
   commit: 87eee1e879a7ecbdab32caa09dfa2bfc566d6269
   args:
+    - --ext .js,.ts
     - src
     - test
-    - examples
 
 - name: vue
   repo: https://github.com/vuejs/vue
   commit: 6b4c0f9c89899f89a3ef258fb0599d78bef65664
   args:
     - src
-    - build
+    - scripts
     - test
-    - --rule=indent:off
-    - --rule=no-multi-spaces:[error,{ignoreEOLComments:true}]
-    - --rule=camelcase:off # There are several `camelcase` errors in the vue codebase for some reason
 
 - name: webpack
   repo: https://github.com/webpack/webpack
   commit: dcc45dd977356f08061b2e9451792c6218910891
   args:
-    - lib
-    - bin
-    - hot
-    - buildin
-    - test/*.js
-    - test/**/webpack.config.js
-    - examples/**/webpack.config.js
-    - schemas/**/*.js
-    - --rule=no-self-assign:[error, {props:false}]
-    - --rule=no-redeclare:off
-    - --rule=node/no-missing-require:off # Prevent missing dependencies from erroring
-    - --rule=prettier/prettier:off # There are several errors with `prettier/prettier`, need to figure out what is missing in config
+    - .
   dependencies:
     - prettier
