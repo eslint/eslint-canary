@@ -24,7 +24,7 @@
 
 - name: mocha
   repo: https://github.com/mochajs/mocha
-  commit: d9f5079b3b26c61fec3329a902dea00ccc961f70
+  commit: 883ae4b5e1aacd8cf30694da33b391ce58f4cca8
   args:
     - .
     - bin/*
