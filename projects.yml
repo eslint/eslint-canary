@@ -39,26 +39,27 @@
     - test
     - tools
 
-- name: redux
-  repo: https://github.com/reactjs/redux
-  commit: 87eee1e879a7ecbdab32caa09dfa2bfc566d6269
-  args:
-    - --ext .js,.ts
-    - src
-    - test
+# - name: redux
+#   repo: https://github.com/reactjs/redux
+#   commit: fc1bd16eec8ac1c7e589bf603f01f3dcafecec83
+#   args:
+#     - --ext .js,.ts
+#     - src
+#     - test
 
-- name: vue
-  repo: https://github.com/vuejs/vue
-  commit: 6b4c0f9c89899f89a3ef258fb0599d78bef65664
-  args:
-    - src
-    - scripts
-    - test
+# - name: vue
+#   repo: https://github.com/vuejs/vue
+#   commit: 6390f70c2e4ec7e51cce1d2a4ba35e2d0d328205
+#   args:
+#     - src
+#     - scripts
+#     - test
 
 - name: webpack
   repo: https://github.com/webpack/webpack
-  commit: dcc45dd977356f08061b2e9451792c6218910891
+  commit: 9d907c1c3810577dcbb83aad5fb2bc5de093f2bd
   args:
     - .
+    - --rule=node/no-missing-require:off
   dependencies:
     - prettier
