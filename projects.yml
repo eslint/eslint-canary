@@ -39,13 +39,13 @@
     - test
     - tools
 
-# - name: redux
-#   repo: https://github.com/reactjs/redux
-#   commit: fc1bd16eec8ac1c7e589bf603f01f3dcafecec83
-#   args:
-#     - --ext .js,.ts
-#     - src
-#     - test
+- name: redux
+  repo: https://github.com/reactjs/redux
+  commit: 9819b5ef2909cacda0f09c8d29fde229bd7da5fa
+  args:
+    - --ext js,ts
+    - src/**/*
+    - test/**/*
 
 # - name: vue
 #   repo: https://github.com/vuejs/vue
