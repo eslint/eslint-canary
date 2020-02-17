@@ -47,19 +47,23 @@
     - src/**/*
     - test/**/*
 
-# - name: vue
-#   repo: https://github.com/vuejs/vue
-#   commit: 6390f70c2e4ec7e51cce1d2a4ba35e2d0d328205
-#   args:
-#     - src
-#     - scripts
-#     - test
+- name: vue
+  repo: https://github.com/vuejs/vue
+  commit: 6390f70c2e4ec7e51cce1d2a4ba35e2d0d328205
+  args:
+    - src
+    - scripts
+    - test
+    # The Vue codebase has some linting errors in master.
+    - --rule=no-prototype-builtins:off
+    - --rule=no-redeclare:off
 
 - name: webpack
   repo: https://github.com/webpack/webpack
   commit: 9d907c1c3810577dcbb83aad5fb2bc5de093f2bd
   args:
     - .
+    # Disabling this rule so that we don't have to install all missing dependencies.
     - --rule=node/no-missing-require:off
   dependencies:
     - prettier
