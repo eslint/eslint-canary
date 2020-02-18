@@ -9,14 +9,13 @@
 
 - name: body-parser
   repo: https://github.com/expressjs/body-parser
-  commit: b2659a7af3b413a2d1df274bef409fe6cdcf6b8f
+  commit: b15bae549108e613ceb5e408731cbdb374ad62df
   args:
     - .
-    - --rule=indent:off
 
 - name: jquery
   repo: https://github.com/jquery/jquery
-  commit: 3e3b09d68d317a3fe567e377e9032319ac5e0829
+  commit: c1ee33aded44051b8f1288b59d2efdc68d0413cc
   args:
     - src/**/*.js
     - Gruntfile.js
@@ -25,60 +24,46 @@
 
 - name: mocha
   repo: https://github.com/mochajs/mocha
-  commit: 09ce746aa925d35317f2624fd36c77a31bb68e24
+  commit: 883ae4b5e1aacd8cf30694da33b391ce58f4cca8
   args:
     - .
     - bin/*
-    - --rule=indent:off
-    - --rule=no-multi-spaces:[error,{ignoreEOLComments:true}]
 
 - name: node
   repo: https://github.com/nodejs/node
-  commit: 0863a0e528ba9ee01f960dce7ffebe8fff3a774c
+  commit: 7babffbe6054754b733098c52786a23df4049a74
   args:
     - --rulesdir=tools/eslint-rules
     - benchmark
     - lib
     - test
     - tools
-    - --rule=indent:off
-    - --rule=no-multi-spaces:[error, {ignoreEOLComments:true}]
-    - --rule=timer-arguments:off
-    - --rule=no-self-assign:[error, {props:false}]
 
 - name: redux
   repo: https://github.com/reactjs/redux
-  commit: ac7cd32a5270eb374611bf73d072e84a1e7567c2
+  commit: 9819b5ef2909cacda0f09c8d29fde229bd7da5fa
   args:
-    - src
-    - test
-    - examples
+    - --ext js,ts
+    - src/**/*
+    - test/**/*
 
 - name: vue
   repo: https://github.com/vuejs/vue
-  commit: d982e344b39391fe91b6dd91d51b2f0310a45e77
+  commit: 6390f70c2e4ec7e51cce1d2a4ba35e2d0d328205
   args:
     - src
-    - build
+    - scripts
     - test
-    - --rule=indent:off
-    - --rule=no-multi-spaces:[error,{ignoreEOLComments:true}]
-    - --rule=camelcase:off # There are several `camelcase` errors in the vue codebase for some reason
+    # The Vue codebase has some linting errors in master.
+    - --rule=no-prototype-builtins:off
+    - --rule=no-redeclare:off
 
 - name: webpack
   repo: https://github.com/webpack/webpack
-  commit: 95291e83662b2a2a184d492de0451cda27da1279
+  commit: 9d907c1c3810577dcbb83aad5fb2bc5de093f2bd
   args:
-    - lib
-    - bin
-    - hot
-    - buildin
-    - test/*.js
-    - test/**/webpack.config.js
-    - examples/**/webpack.config.js
-    - schemas/**/*.js
-    - --rule=no-self-assign:[error, {props:false}]
-    - --rule=node/no-missing-require:off # Prevent missing dependencies from erroring
-    - --rule=prettier/prettier:off # There are several errors with `prettier/prettier`, need to figure out what is missing in config
+    - .
+    # Disabling this rule so that we don't have to install all missing dependencies.
+    - --rule=node/no-missing-require:off
   dependencies:
     - prettier

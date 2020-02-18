@@ -9,3 +9,5 @@ rules:
        - error
        - name: child_process
          message: Please use cross-spawn instead.
+
+    no-console: off
