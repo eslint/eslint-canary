@@ -8,7 +8,8 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "test": "npm run lint && node validate-projects.js && node canary.js node_modules/eslint"
+    "validate-projects": "node validate-projects.js",
+    "test": "node canary.js node_modules/eslint"
   },
   "repository": {
     "type": "git",
