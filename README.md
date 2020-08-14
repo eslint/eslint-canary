@@ -14,7 +14,7 @@ $ eslint-canary path/to/package/folder/containing/eslint
 ## Development
 
 ```bash
-$ git clone https://github.com/not-an-aardvark/eslint-canary
+$ git clone https://github.com/eslint/eslint-canary
 $ cd eslint-canary
 $ npm install
 $ npm test
