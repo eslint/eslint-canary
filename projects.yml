@@ -9,13 +9,13 @@
 
 - name: body-parser
   repo: https://github.com/expressjs/body-parser
-  commit: b15bae549108e613ceb5e408731cbdb374ad62df
+  commit: 480b1cfe29af19c070f4ae96e0d598c099f42a12
   args:
     - .
 
 - name: jquery
   repo: https://github.com/jquery/jquery
-  commit: c1ee33aded44051b8f1288b59d2efdc68d0413cc
+  commit: df6858df2ed3fc5c424591a5e09b900eb4ce0417
   args:
     - src/**/*.js
     - Gruntfile.js
@@ -24,7 +24,7 @@
 
 - name: mocha
   repo: https://github.com/mochajs/mocha
-  commit: 883ae4b5e1aacd8cf30694da33b391ce58f4cca8
+  commit: b3eb2a68d345aa9ce5791dddfea41a13be743b78
   args:
     - .
     - bin/*
@@ -49,7 +49,7 @@
 
 - name: vue
   repo: https://github.com/vuejs/vue
-  commit: 6390f70c2e4ec7e51cce1d2a4ba35e2d0d328205
+  commit: 635e669f64560f084f6cb97fdd90880e3d33d363
   args:
     - src
     - scripts
@@ -60,7 +60,7 @@
 
 - name: webpack
   repo: https://github.com/webpack/webpack
-  commit: 9d907c1c3810577dcbb83aad5fb2bc5de093f2bd
+  commit: ad3e2150087a6257c370029edcf4639c0d9eeed9
   args:
     - .
     # Disabling this rule so that we don't have to install all missing dependencies.
