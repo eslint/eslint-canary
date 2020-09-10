@@ -24,9 +24,9 @@
   "devDependencies": {
     "eslint": "^6.8.0",
     "eslint-config-eslint": "^6.0.0",
-    "eslint-plugin-jsdoc": "^18.4.4",
-    "eslint-plugin-node": "^10.0.0",
-    "npm": "^6.13.4"
+    "eslint-plugin-jsdoc": "^30.4.0",
+    "eslint-plugin-node": "^11.1.0",
+    "npm": "^6.14.8"
   },
   "dependencies": {
     "chai": "^4.2.0",
